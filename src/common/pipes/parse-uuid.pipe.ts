@@ -1,0 +1,12 @@
+import { Injectable, PipeTransform, ArgumentMetadata, BadRequestException } from '@nestjs/common';
+
+@Injectable()
+export class ParseUUIDPipe implements PipeTransform {
+  transform(value: string, metadata: ArgumentMetadata) {
+    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+    if (!uuidRegex.test(value)) {
+      throw new BadRequestException(`Invalid UUID format for ${metadata.data}`);
+    }
+    return value;
+  }
+}
