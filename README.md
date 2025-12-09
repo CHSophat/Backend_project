@@ -2,6 +2,8 @@
 
 A powerful NestJS-based backend API for a blog/news platform with user authentication, post management, categories, and comments.
 
+> **Note**: This project uses **SQLite** database. For migration details from MySQL, see [SQLITE_MIGRATION_SUMMARY.md](SQLITE_MIGRATION_SUMMARY.md). For quick start, see [QUICK_START_SQLITE.md](QUICK_START_SQLITE.md).
+
 ## Features
 
 - 🔐 JWT Authentication
@@ -11,13 +13,12 @@ A powerful NestJS-based backend API for a blog/news platform with user authentic
 - 💬 Comments System
 - 🛡️ Role-based Access Control
 - ✅ Data Validation
-- 🗄️ MySQL Database
+- 🗄️ SQLite Database
 
 ## Prerequisites
 
 - Node.js (v18+)
 - npm or yarn
-- MySQL (v8+)
 
 ## Installation
 
@@ -30,12 +31,8 @@ npm install
 Create a `.env` file in the root directory:
 
 ```env
-# Database Configuration
-DB_HOST=localhost
-DB_PORT=3306
-DB_USERNAME=root
-DB_PASSWORD=your_password
-DB_NAME=blog_news_db
+# Database Configuration (SQLite)
+DB_PATH=database.sqlite
 
 # JWT Configuration
 JWT_SECRET=your_jwt_secret_key

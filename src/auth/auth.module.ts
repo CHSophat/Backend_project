@@ -10,8 +10,8 @@ import { UsersModule } from '../users/users.module';
   imports: [
     PassportModule,
     JwtModule.register({
-      secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: process.env.JWT_EXPIRES_IN || '7d' },
+      secret: process.env.JWT_SECRET || 'your_super_secret_jwt_key_change_this_in_production',
+      signOptions: { expiresIn: '7d' },
     }),
     UsersModule,
   ],
@@ -19,4 +19,4 @@ import { UsersModule } from '../users/users.module';
   providers: [AuthService, JwtStrategy],
   exports: [AuthService],
 })
-export class AuthModule {}
+export class AuthModule { }

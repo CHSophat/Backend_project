@@ -16,3 +16,8 @@ coverage/
 *~
 .nyc_output/
 .cache/
+
+# SQLite Database
+*.sqlite
+*.sqlite3
+*.db

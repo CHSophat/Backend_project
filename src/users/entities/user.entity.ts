@@ -25,7 +25,7 @@ export class UserEntity {
   @Column({ type: 'varchar', length: 255, nullable: true })
   profilePicture: string;
 
-  @Column({ type: 'enum', enum: ['user', 'admin'], default: 'user' })
+  @Column({ type: 'varchar', length: 20, default: 'user' })
   role: string;
 
   @Column({ type: 'boolean', default: true })

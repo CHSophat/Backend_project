@@ -9,7 +9,7 @@ export class AuthService {
   constructor(
     private usersService: UsersService,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
   async register(createUserDto: CreateUserDto) {
     const existingUser = await this.usersService.findByEmail(createUserDto.email);
@@ -44,9 +44,7 @@ export class AuthService {
     };
 
     return {
-      access_token: this.jwtService.sign(payload, {
-        expiresIn: process.env.JWT_EXPIRES_IN || '7d',
-      }),
+      access_token: this.jwtService.sign(payload),
       user: {
         id: user.id,
         email: user.email,
